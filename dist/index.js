@@ -74,7 +74,9 @@ class StatusJS {
     this.shh = web3.shh;
     this.mailservers = new _mailservers.default(web3);
     await web3.shh.setMinPoW(_constants.default.post.POW_TARGET);
-    sig.set(this, privateKey ? await this.generateWhisperKeyFromWallet(privateKey) : await web3.shh.newKeyPair());
+    const keyId = privateKey ? await this.generateWhisperKeyFromWallet(privateKey) : await web3.shh.newKeyPair();
+    sig.set(this, keyId);
+    return keyId;
   }
 
   isConnected() {

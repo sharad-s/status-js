@@ -59,10 +59,14 @@ class StatusJS {
     this.mailservers = new mailservers(web3);
 
     await web3.shh.setMinPoW(constants.post.POW_TARGET);
+
+    const keyId = privateKey ? await this.generateWhisperKeyFromWallet(privateKey) : await web3.shh.newKeyPair();
+
     sig.set(
-      this,
-      privateKey ? await this.generateWhisperKeyFromWallet(privateKey) : await web3.shh.newKeyPair(),
+      this, keyId
     );
+    
+    return keyId;
   }
 
   public isConnected() {
