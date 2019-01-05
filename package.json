@@ -2,7 +2,7 @@
   "name": "status-js-api",
   "version": "1.1.2",
   "description": "",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "babel": "babel",
     "babel:node": "npm-run-all babel:node:*",
@@ -14,7 +14,7 @@
     "clean": "rimraf dist",
     "lint": "npm-run-all lint:*",
     "lint:js": "npm-run-all lint:js:*",
-    "lint:js:core": "eslint babel.config.js src/",
+    "lint:js:core": "eslint babel.config.js src/*.ts",
     "lint:ts": "tslint -c tslint.json 'src/**/*.ts'",
     "prepublishOnly": "npm-run-all clean build test",
     "test": "npm-run-all lint test:*",
