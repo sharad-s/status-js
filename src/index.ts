@@ -178,7 +178,7 @@ class StatusJS {
             });
           })
           .catch((err: any) => { cb(err); });
-        }, 250);
+        }, 1000 * 2);
       });
     } else {
       this.channels[channelName].subscription = this.shh.subscribe("messages", filters)
