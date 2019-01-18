@@ -210,7 +210,7 @@ class StatusJS {
   onUserMessage(cb) {
     const filters = {
       allowP2P: true,
-      minPow: _constants.default.post.POW_TARGET,
+      minPow: 0,
       privateKeyID: sig.get(this),
       topics: [_constants.default.topics.CONTACT_DISCOVERY_TOPIC]
     };
